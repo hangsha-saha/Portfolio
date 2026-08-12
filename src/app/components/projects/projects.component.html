@@ -1,0 +1,41 @@
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">&lt;projects/&gt;</span>
+      <h2 class="section-title">Things I've built independently</h2>
+    </div>
+
+    <div class="projects-grid">
+      @for (p of projects; track p.name) {
+        <div class="project-card card">
+          @if (p.tag) { <span class="tag ribbon">{{ p.tag }}</span> }
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.desc }}</p>
+          <div class="chips">
+            @for (s of p.stack; track s) {
+              <span class="tag">{{ s }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="patents-block">
+      <div class="patents-head">
+        <span class="eyebrow">&lt;research/&gt;</span>
+        <h3>Published Patents</h3>
+      </div>
+      <div class="patents-list">
+        @for (pt of patents; track pt.appNo) {
+          <div class="patent-row card">
+            <i class="fa-solid fa-file-shield"></i>
+            <div class="patent-copy">
+              <h4>{{ pt.title }}</h4>
+              <p>Application No. {{ pt.appNo }} · {{ pt.date }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

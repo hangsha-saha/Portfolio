@@ -1,0 +1,42 @@
+<section class="section education" id="education">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">&lt;education/&gt;</span>
+      <h2 class="section-title">Education &amp; Recognition</h2>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-list">
+        @for (e of education; track e.school) {
+          <div class="edu-row card">
+            <div class="edu-top">
+              <h3>{{ e.degree }}</h3>
+              <span class="period">{{ e.period }}</span>
+            </div>
+            <p class="school">{{ e.school }}</p>
+            <p class="detail">{{ e.detail }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="side">
+        <div class="side-block card">
+          <h4><i class="fa-solid fa-trophy"></i> Achievements</h4>
+          <ul>
+            @for (a of achievements; track a) {
+              <li>{{ a }}</li>
+            }
+          </ul>
+        </div>
+        <div class="side-block card activitiesCls">
+          <h4><i class="fa-solid fa-users"></i> Activities</h4>
+          <ul>
+            @for (a of activities; track a) {
+              <li>{{ a }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

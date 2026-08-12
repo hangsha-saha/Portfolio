@@ -1,0 +1,18 @@
+<header class="nav" [class.scrolled]="isScrolled()">
+  <div class="nav-inner container">
+    <a href="#home" class="logo" (click)="close()">
+      <span class="logo-mark">&lt;</span>HS<span class="logo-mark">/&gt;</span>
+    </a>
+
+    <nav class="links" [class.open]="isOpen()">
+      @for (link of links; track link.href) {
+        <a [href]="link.href" (click)="close()">{{ link.label }}</a>
+      }
+      <a href="#contact" class="btn btn-primary nav-cta" (click)="close()">Let's talk</a>
+    </nav>
+
+    <button class="burger" [class.open]="isOpen()" (click)="toggle()" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

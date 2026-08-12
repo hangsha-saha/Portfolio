@@ -1,0 +1,45 @@
+<section class="hero" id="home">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="status">
+        <span class="dot"></span>
+        payload_status: <span class="status-value">DECRYPTED</span>
+      </div>
+
+      <h1 class="name">{{ displayName() }}</h1>
+      <p class="role">{{ profile.role }} — Angular &amp; Java/Spring Boot</p>
+      <p class="tagline">{{ profile.tagline }}</p>
+
+      <div class="cta-row">
+        <a href="/assets/hangsha-saha-resume.pdf" download class="btn btn-primary">
+          <i class="fa-solid fa-download"></i> Download Resume
+        </a>
+        <a href="#projects" class="btn btn-outline">View Work</a>
+      </div>
+
+      <div class="meta-row">
+        <a [href]="profile.linkedin" target="_blank" rel="noopener" class="meta-link">
+          <i class="fa-brands fa-linkedin"></i> /hangshasaha
+        </a>
+        <a href="mailto:{{ profile.email }}" class="meta-link">
+          <i class="fa-solid fa-envelope"></i> {{ profile.email }}
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="frame">
+        <img src="/profile.jpg" alt="Portrait of Hangsha Saha" />
+        <div class="frame-tag">// hangsha_saha.jpg</div>
+      </div>
+      <div class="badge badge-1"><i class="fa-solid fa-shield-halved"></i> AES / RSA</div>
+      <div class="badge badge-2"><i class="fa-solid fa-file-shield"></i> 3 Patents Filed</div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+    <span>scroll</span>
+    <i class="fa-solid fa-arrow-down"></i>
+  </a>
+</section>

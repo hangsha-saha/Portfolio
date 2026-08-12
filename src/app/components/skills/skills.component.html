@@ -1,0 +1,24 @@
+<section class="section skills" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">&lt;skills/&gt;</span>
+      <h2 class="section-title">The stack I reach for</h2>
+      <p class="section-sub">
+        <!-- Grouped by where they sit in a system, not scored out of 100 — I'd rather show you the projects. -->
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      @for (group of groups; track group.group) {
+        <div class="skill-group card">
+          <h4>{{ group.group }}</h4>
+          <div class="chips">
+            @for (item of group.items; track item) {
+              <span class="tag">{{ item }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

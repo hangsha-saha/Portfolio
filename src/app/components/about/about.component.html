@@ -1,0 +1,41 @@
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">&lt;about/&gt;</span>
+      <h2 class="section-title">Engineer by trade, curious by default.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>
+          I'm Hangsha, pursued my MCA from VIT Vellore with more than 1 year of internship
+          experience with two different companies. I worked as a software engineer with a fintech company and 
+          a product-based company, where I was involved in
+          building secure banking modules, shipping full-stack products for clients. 
+        </p>
+        <p>
+          Apart from client works, I've spent time on several independent researches — 3 patent
+          applications spanning grid-load forecasting, multilingual RAG systems and
+          food-pattern prediction. As I like thinking out of the box and understanding different aspects of a problem, 
+          I enjoyed working on above mentioned research and development projects. And I'm looking forward to exploring 
+          more such opportunities in the future.
+        </p>
+
+        <div class="cta-row">
+          <a href="/assets/hangsha-saha-resume.pdf" download class="btn btn-outline">
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="about-info card">
+        @for (item of info; track item.label) {
+          <div class="info-row">
+            <span class="info-label">{{ item.label }}</span>
+            <span class="info-value">{{ item.value }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

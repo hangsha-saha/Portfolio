@@ -1,0 +1,95 @@
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">&lt;contact/&gt;</span>
+      <h2 class="section-title">Let's build something.</h2>
+      <p class="section-sub">Open to full-time roles and freelance work. I usually reply within a day.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        @for (c of contactPoints; track c.label) {
+          @if (c.href) {
+            <a [href]="c.href" target="_blank" rel="noopener" class="info-card card">
+              <i [class]="c.icon"></i>
+              <div>
+                <span class="label">{{ c.label }}</span>
+                <span class="value">{{ c.value }}</span>
+              </div>
+            </a>
+          } @else {
+            <div class="info-card card">
+              <i [class]="c.icon"></i>
+              <div>
+                <span class="label">{{ c.label }}</span>
+                <span class="value">{{ c.value }}</span>
+              </div>
+            </div>
+          }
+        }
+      </div>
+
+      <form class="contact-form card" (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
+        @if (state() === 'success') {
+          <div class="form-status success">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h4>Message sent</h4>
+              <p>Thanks for reaching out — I'll get back to you soon.</p>
+            </div>
+            <button type="button" class="btn btn-outline" (click)="reset()">Send another</button>
+          </div>
+        } @else if (state() === 'unconfigured') {
+          <div class="form-status warn">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+              <h4>Contact form isn't wired up yet</h4>
+              <p>Email sending needs a free EmailJS key — see <code>src/app/config/email.config.ts</code>. In the meantime:</p>
+              <a [href]="mailtoFallback()" class="btn btn-primary">
+                <i class="fa-solid fa-envelope"></i> Email me directly
+              </a>
+            </div>
+            <button type="button" class="btn btn-outline" (click)="reset()">Back</button>
+          </div>
+        } @else {
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name*</label>
+              <input id="name" name="name" type="text" [(ngModel)]="form.name" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="email">Email*</label>
+              <input id="email" name="email" type="email" [(ngModel)]="form.email" required placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" [(ngModel)]="form.subject" placeholder="What's this about?" />
+          </div>
+
+          <div class="field">
+            <label for="message">Message*</label>
+            <textarea id="message" name="message" rows="5" [(ngModel)]="form.message" required placeholder="Tell me a bit about the project or role..."></textarea>
+          </div>
+
+          @if (state() === 'error') {
+            <div class="inline-error">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              Something went wrong sending that — try again, or
+              <a [href]="mailtoFallback()">email me directly</a>.
+            </div>
+          }
+
+          <button type="submit" class="btn btn-primary submit-btn" [disabled]="state() === 'sending' || contactForm.invalid">
+            @if (state() === 'sending') {
+              <i class="fa-solid fa-spinner fa-spin"></i> Sending...
+            } @else {
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            }
+          </button>
+        }
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 90px;
+}
+
+.project-card {
+  padding: 26px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.project-card h3 { font-size: 17px; }
+
+.project-card p {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  line-height: 1.65;
+  flex-grow: 1;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ribbon {
+  display: none;
+  position: absolute;
+  top: 18px; right: 18px;
+  color: var(--accent);
+  border-color: rgba(224,149,79,0.35);
+  background: rgba(224,149,79,0.08);
+}
+
+.patents-head { margin-bottom: 28px; }
+.patents-head h3 { margin-top: 14px; font-size: clamp(28px, 4vw, 38px);}
+
+.patents-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.patent-row {
+  display: flex;
+  gap: 18px;
+  padding: 22px 24px;
+  align-items: flex-start;
+}
+
+.patent-row i {
+  color: var(--accent-2);
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+.patent-copy h4 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  font-family: var(--font-body);
+}
+
+.patent-copy p {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+
+@media (max-width: 980px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .patent-row { flex-direction: column; gap: 10px; }
+}

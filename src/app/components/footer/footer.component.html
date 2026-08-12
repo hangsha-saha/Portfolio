@@ -1,0 +1,13 @@
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="logo">
+      <span class="logo-mark">&lt;</span>HS<span class="logo-mark">/&gt;</span>
+    </div>
+    <p class="copy">© {{ year }} {{ profile.name }}. Built with Angular.</p>
+    <div class="socials">
+      @for (s of socials; track s.href) {
+        <a [href]="s.href" target="_blank" rel="noopener"><i [class]="s.icon"></i></a>
+      }
+    </div>
+  </div>
+</footer>
